@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+import { motion } from "framer-motion";
+import { FaLinkedin, FaTwitter } from "react-icons/fa";
 const founders = [
   {
     name: "Trevor Madara",
@@ -17,48 +20,58 @@ const founders = [
 
 export default function Founders() {
   return (
-    <section id="founders" className="py-24 bg-[#732B1A]">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-
-        <h2 className="text-4xl font-bold text-[#F2E399] mb-6">
-          Meet the Founders
-        </h2>
-
-        <p className="text-[#F2D399] max-w-3xl mx-auto mb-16">
-          Our founders bring together vision, technical expertise, and a passion for transforming industries with modern SaaS solutions.
+    <section
+      id="founders"
+      className="py-24 bg-gradient-to-b from-[#F2D399]/20 to-[#F2E399]/10 relative"
+    >
+      <div className="max-w-7xl mx-auto px-6 text-center mb-16">
+        <h2 className="text-4xl font-bold text-[#8C1F33] mb-4">Meet the Founders</h2>
+        <p className="text-[#732B1A] max-w-2xl mx-auto">
+          The visionaries behind InvodTech, leading our mission to build trust-driven SaaS solutions.
         </p>
+      </div>
 
-        <div className="grid md:grid-cols-2 gap-10">
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+        {founders.map((founder, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: i * 0.3 }}
+            className="bg-[#F2F2F2] rounded-2xl p-8 flex flex-col items-center text-center shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 relative"
+          >
+            {/* Profile Image */}
+            <img
+              src={founder.image}
+              alt={founder.name}
+              className="w-32 h-32 rounded-full object-cover mb-4 transform transition-transform duration-300 hover:scale-110"
+            />
 
-          {founders.map((f, i) => (
-            <div
-              key={i}
-              className="bg-[#8C1F33]/30 border border-[#D9969B] rounded-2xl p-8 flex flex-col items-center transition-transform hover:scale-105 hover:shadow-lg"
-            >
-              <img
-                src={f.image}
-                alt={f.name}
-                className="w-32 h-32 object-cover rounded-full border-2 border-[#F2E399] mb-4"
-              />
+            {/* Name & Role */}
+            <h3 className="text-2xl font-semibold text-[#8C1F33] mb-1">{founder.name}</h3>
+            <p className="text-[#732B1A] mb-4">{founder.role}</p>
 
-              <h3 className="text-2xl font-semibold text-white">{f.name}</h3>
-              <span className="text-[#F2D399] text-sm">{f.role}</span>
-
-              <p className="text-[#F2D399] text-center mt-4">{f.bio}</p>
-
-              {f.linkedin && (
-                <a
-                  href={f.linkedin}
-                  target="_blank"
-                  className="mt-4 text-[#F2E399] hover:text-[#D9969B] transition"
-                >
-                  LinkedIn
-                </a>
-              )}
+            {/* Social Icons */}
+            <div className="flex space-x-4">
+              <a
+                href={founder.linkedin}
+                className="text-[#F2E399] hover:text-[#F2D399] transition-colors"
+              >
+                <FaLinkedin size={24} />
+              </a>
+              <a
+                href={founder.twitter}
+                className="text-[#F2E399] hover:text-[#F2D399] transition-colors"
+              >
+                <FaTwitter size={24} />
+              </a>
             </div>
-          ))}
 
-        </div>
+            {/* Optional floating accent */}
+            <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-[#D9969B]/50 rounded-full animate-bounce"></div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

@@ -1,83 +1,65 @@
+/* eslint-disable no-unused-vars */
+import { motion } from "framer-motion";
+
 const products = [
   {
     name: "SiteTrust",
-    description:
-      "Construction transparency platform enabling property owners to monitor verified site updates remotely.",
-    status: "In Development",
-   // image: "/src/assets/sitetrust-dashboard.png", // placeholder image
+    description: "Construction progress portal for transparency and trust.",
+    status: "Available",
   },
   {
     name: "AgriERP",
-    description:
-      "Farm operations and cooperative management platform for modern agriculture.",
+    description: "Enterprise resource planning for agriculture businesses.",
     status: "Coming Soon",
-   // image: "/src/assets/agrierp-dashboard.png",
   },
   {
-    name: "Custom Software Engineering",
-    description:
-      "Bespoke software solutions for companies looking to digitize operations and workflows.",
+    name: "Custom Software",
+    description: "Tailored solutions to fit your business needs.",
     status: "Available",
-   // image: "/src/assets/custom-software.png",
   },
 ];
 
 export default function Products() {
   return (
-    <section id="products" className="py-24 bg-[#732B1A]">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-[#F2E399] text-center mb-16">
-          Our Platforms
-        </h2>
+    <section id="products" className="py-24 bg-[#59313C] relative overflow-hidden">
+      {/* Section Header */}
+      <div className="max-w-7xl mx-auto px-6 text-center mb-12">
+        <h2 className="text-4xl font-bold text-[#ffff] mb-4">Our Products</h2>
+        <p className="text-[#ffff] max-w-2xl mx-auto">
+          Explore our suite of SaaS solutions built to streamline workflows and scale with your business.
+        </p>
+      </div>
 
-        <div className="grid md:grid-cols-3 gap-10">
-
-          {products.map((p, i) => (
-            <div
-              key={i}
-              className="relative group bg-[#8C1F33]/20 border-2 border-transparent rounded-2xl p-6 overflow-hidden transition-transform hover:scale-105 hover:shadow-2xl"
-            >
-              {/* Animated Gradient Border */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#D9969B] via-[#F2E399] to-[#F2D399] opacity-20 blur-lg group-hover:opacity-80 transition-opacity pointer-events-none"></div>
-
-              {/* Product content */}
-              <div className="relative z-10 flex flex-col h-full">
-
-                {/* Image / Dashboard Preview */}
-                {p.image && (
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    className="rounded-lg w-full h-40 object-cover mb-4 shadow-lg"
-                  />
-                )}
-
-                <h3 className="text-2xl font-semibold text-white">{p.name}</h3>
-                <p className="text-[#F2D399] mt-2 flex-1">{p.description}</p>
-
-                {/* Status */}
-                <span
-                  className={`mt-4 inline-block px-3 py-1 rounded-full text-sm ${
-                    p.status === "In Development"
-                      ? "bg-[#8C1F33] text-[#F2E399]"
-                      : p.status === "Coming Soon"
-                      ? "bg-[#D9969B]/40 text-white"
-                      : "bg-[#F2E399] text-[#732B1A]"
-                  }`}
-                >
-                  {p.status}
-                </span>
-
-                {/* CTA Button */}
-                <button className="mt-4 bg-[#8C1F33] hover:bg-[#D9969B] text-white px-4 py-2 rounded-lg transition">
-                  Book Demo
-                </button>
-
+      {/* Product Cards */}
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+        {products.map((product, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: i * 0.2 }}
+            className="relative bg-linear-to-br from-[#8C1F33]/20 to-[#D9969B]/10 border border-[#D9969B] rounded-2xl p-8 flex flex-col hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+          >
+            {/* Coming Soon Badge */}
+            {product.status === "Coming Soon" && (
+              <div className="absolute top-4 right-4 bg-[#F2E399] text-[#8C1F33] px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                {product.status}
               </div>
-            </div>
-          ))}
+            )}
 
-        </div>
+            <h3 className="text-2xl font-semibold text-[#ffff] mb-2">{product.name}</h3>
+            <p className="text-[#ffff] flex-1">{product.description}</p>
+
+            {/* Floating Mini Icon */}
+            <div className="absolute -bottom-4 -right-4 w-10 h-10 bg-[#F2D399]/50 rounded-full animate-bounce"></div>
+
+            {/* CTA Button */}
+            <button className="mt-6 bg-[#8C1F33] hover:bg-[#D9969B] text-white px-6 py-3 rounded-lg transition transform hover:scale-105">
+              Learn More
+            </button>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

@@ -1,58 +1,70 @@
-import logo from "../assets/logo.png"
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import Logo from "../assets/logo.png"; // Replace with your logo path
 
 export default function Navbar() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const links = ["Home", "Products", "Philosophy", "Founders", "Pricing", "Contact"];
 
   return (
-
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-[#732B1A]/80 border-b border-[#8C1F33]">
-
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <nav className="fixed w-full z-50 bg-[#8C1F33]/70 backdrop-blur-md shadow-md">
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
 
         {/* Logo */}
-        <div className="flex items-center gap-3">
-
+        <div className="flex items-center space-x-3 cursor-pointer">
           <img
-            src={logo}
-            alt="InvodTech"
-            className="h-9 w-auto"
+            src={Logo}
+            alt="InvodTech Logo"
+            className="h-12 w-12 transform transition-transform duration-300 hover:scale-110 hover:rotate-3"
           />
-
-          <span className="font-bold text-[#F2E399] text-lg">
+          <span className="text-[#F2E399] font-bold text-2xl hover:text-[#F2D399] transition-colors">
             InvodTech
           </span>
-
         </div>
 
-        {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-10 text-[#F2D399]">
+        {/* Desktop Links */}
+        <div className="hidden md:flex space-x-8">
+          {links.map((link) => (
+            <a
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              className="text-[#F2F2F2] hover:text-[#F2D399] font-medium transition-colors duration-200"
+            >
+              {link}
+            </a>
+          ))}
+        </div>
 
-          <a href="#products" className="hover:text-white transition">
-            Products
-          </a>
-
-          <a href="#platform" className="hover:text-white transition">
-            Platform
-          </a>
-
-          <a href="#engineering" className="hover:text-white transition">
-            Engineering
-          </a>
-
-          <a href="#contact" className="hover:text-white transition">
-            Contact
-          </a>
-
-        </nav>
-
-        {/* CTA */}
-        <button className="bg-[#8C1F33] hover:bg-[#D9969B] text-white px-5 py-2 rounded-lg transition">
-          Request Demo
-        </button>
-
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button onClick={() => setMobileOpen(!mobileOpen)}>
+            {mobileOpen ? (
+              <FaTimes className="text-[#F2E399] text-2xl transition-transform hover:scale-110" />
+            ) : (
+              <FaBars className="text-[#F2E399] text-2xl transition-transform hover:scale-110" />
+            )}
+          </button>
+        </div>
       </div>
 
-    </header>
-
-  )
-
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden bg-[#732B1A]/90 backdrop-blur-md flex flex-col items-center py-6 space-y-4 transition-all duration-300 ${
+          mobileOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+        }`}
+      >
+        {links.map((link) => (
+          <a
+            key={link}
+            href={`#${link.toLowerCase()}`}
+            className="text-[#F2F2F2] hover:text-[#F2D399] font-semibold text-lg transition-colors duration-200"
+            onClick={() => setMobileOpen(false)}
+          >
+            {link}
+          </a>
+        ))}
+      </div>
+    </nav>
+  );
 }
