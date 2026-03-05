@@ -4,6 +4,7 @@ import PlatformPhilosophy from "../sections/PlatformPhilosophy"
 import Founders from "../sections/Founders"
 import Pricing from "../sections/Pricing"
 import Contact from "../sections/Contact"
+import RequestQuote from "../sections/RequestQuote"
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <PlatformPhilosophy />
       <Founders />
       <Pricing />
+      <RequestQuote />
       <Contact />
     </>
   )

@@ -43,7 +43,7 @@ export default function PlatformPhilosophy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: i * 0.2 }}
-            className={`relative flex flex-col items-center text-center p-8 rounded-2xl bg-gradient-to-br ${pillar.bg} hover:scale-105 hover:shadow-2xl transition-transform duration-300`}
+            className={`relative flex flex-col items-center text-center p-8 rounded-2xl bg-linear-to-br ${pillar.bg} hover:scale-105 hover:shadow-2xl transition-transform duration-300`}
           >
             <div className="mb-4 text-[#8C1F33]">{pillar.icon}</div>
             <h3 className="text-2xl font-semibold text-[#8C1F33] mb-2">{pillar.title}</h3>

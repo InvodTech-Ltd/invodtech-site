@@ -69,7 +69,7 @@ export default function Pricing() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: i * 0.2 }}
             className={`relative flex flex-col p-8 rounded-2xl border ${
-              plan.featured ? "bg-gradient-to-br from-[#D9969B]/20 to-[#F2E399]/10 border-[#D9969B]" : "bg-[#F2F2F2] border-[#D9969B]"
+              plan.featured ? "bg-linear-to-br from-[#D9969B]/20 to-[#F2E399]/10 border-[#D9969B]" : "bg-[#F2F2F2] border-[#D9969B]"
             } hover:scale-105 hover:shadow-2xl transition-transform duration-300`}
           >
             {/* Featured Badge */}

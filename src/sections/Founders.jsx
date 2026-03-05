@@ -22,7 +22,7 @@ export default function Founders() {
   return (
     <section
       id="founders"
-      className="py-24 bg-gradient-to-b from-[#F2D399]/20 to-[#F2E399]/10 relative"
+      className="py-24 bg-linear-to-b from-[#F2D399]/20 to-[#F2E399]/10 relative"
     >
       <div className="max-w-7xl mx-auto px-6 text-center mb-16">
         <h2 className="text-4xl font-bold text-[#8C1F33] mb-4">Meet the Founders</h2>
