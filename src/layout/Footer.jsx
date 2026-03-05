@@ -1,5 +1,5 @@
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
-import Logo from "../assets/logo.png"; // Replace with your logo
+import Logo from "/assets/logo.png"; // Replace with your logo
 
 export default function Footer() {
   return (

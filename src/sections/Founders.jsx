@@ -6,14 +6,14 @@ const founders = [
     name: "Trevor Madara",
     role: "Co-Founder & CEO",
     bio: "Visionary behind InvodTech, leading platform strategy and SaaS innovation across industries.",
-    image: "/src/assets/trevor.jpg",
+    image: "/assets/trevor.jpg",
     linkedin: "https://www.linkedin.com/in/trevor-madara/",
   },
   {
     name: "Rachel Mureithi",
     role: "Co-Founder & CTO",
     bio: "Technical lead overseeing platform architecture, AI integration, and product development.",
-    image: "/src/assets/ray.jpg",
+    image: "/assets/ray.jpg",
     linkedin: "#",
   },
 ];

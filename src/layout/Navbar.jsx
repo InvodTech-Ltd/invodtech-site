@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import Logo from "../assets/logo.png"; // Replace with your logo path
+import Logo from "/assets/logo.png"; // Replace with your logo path
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);

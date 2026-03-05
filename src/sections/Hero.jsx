@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
-import HeroIllustration from "../assets/hero-illustration.png"; // Replace with your illustration
+import HeroIllustration from "/assets/hero-illustration.png"; // Replace with your illustration
 
 export default function Hero() {
   return (
