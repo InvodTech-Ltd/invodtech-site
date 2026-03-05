@@ -5,7 +5,7 @@ export default function ContactCTA() {
   return (
     <section
       id="contact"
-      className="relative py-24 bg-gradient-to-br from-[#F2D399]/20 to-[#F2E399]/10 overflow-hidden"
+      className="relative py-24 bg-linear-to-br from-[#F2D399]/20 to-[#F2E399]/10 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 text-center mb-12">
         {/* Headline */}
@@ -39,16 +39,16 @@ export default function ContactCTA() {
         <input
           type="text"
           placeholder="Your Name"
-          className="px-4 py-3 rounded-lg border border-[#D9969B] bg-[#F2F2F2] focus:outline-none focus:ring-2 focus:ring-[#F2E399] transition"
+          className="px-4 py-3 rounded-lg border text-[#F2D399] border-[#D9969B] bg-[#F2F2F2] focus:outline-none focus:ring-2 focus:ring-[#F2E399] transition"
         />
         <input
           type="email"
           placeholder="Your Email"
-          className="px-4 py-3 rounded-lg border border-[#D9969B] bg-[#F2F2F2] focus:outline-none focus:ring-2 focus:ring-[#F2E399] transition"
+          className="px-4 py-3 rounded-lg border text-[#F2D399] border-[#D9969B] bg-[#F2F2F2] focus:outline-none focus:ring-2 focus:ring-[#F2E399] transition"
         />
         <textarea
           placeholder="Your Message"
-          className="px-4 py-3 rounded-lg border border-[#D9969B] bg-[#F2F2F2] focus:outline-none focus:ring-2 focus:ring-[#F2E399] transition resize-none"
+          className="px-4 py-3 rounded-lg border text-[#F2D399] border-[#D9969B] bg-[#F2F2F2] focus:outline-none focus:ring-2 focus:ring-[#F2E399] transition resize-none"
           rows={5}
         />
         <button
